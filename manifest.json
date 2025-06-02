@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "WordPress Detector",
+    "version": "1.0",
+    "description": "Instantly detect a website is built in WordPress and also identifies plugins and themes.",
+    "icons": {
+        "128": "icons/icon128.png",
+        "48": "icons/icon48.png",
+        "16": "icons/icon16.png"
+    },
+    "action": {
+        "default_icon": "icons/icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Analyze Website"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ]
+}

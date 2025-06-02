@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WordPress Detector</title>
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+
+<body>
+    <h1>
+        <span>WordPress Detector</span>
+    </h1>
+    <button id="check">Analyze Website</button>
+    <div class="loader-box">
+        <img src="icons/icon48.png" alt="WordPress Detector" class="loader logo">
+        <img src="icons/mark.png" alt="WordPress Detector" class="loader found">
+        <img src="icons/cross.png" alt="WordPress Detector" class="loader not-found">
+        <span id="result"></span>
+    </div>
+    <div id="module-box">
+        <div id="theme-box">
+            <h2>Active Themes</h2>
+            <div id="themes"></div>
+        </div>
+        <div id="plugins-box">
+            <h2>Active Plugins</h2>
+            <div id="plugins"></div>
+        </div>
+    </div>
+    <button id="view-modules">View Themes & Plugins</button>
+    <script src="js/popup.js"></script>
+</body>
+
+</html>
