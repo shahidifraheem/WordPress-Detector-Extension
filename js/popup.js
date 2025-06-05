@@ -19,7 +19,7 @@ async function detectWordPressDirectories() {
 
     // 2. Search HTML source for known WordPress patterns
     const html = document.documentElement.outerHTML.toLowerCase();
-    const wpKeywords = ['content="wordpress', 'wp-', 'wp-admin', 'wp-includes', 'wp-content'];
+    const wpKeywords = ['content="wordpress', 'wp-admin', 'wp-includes', 'wp-content'];
     const foundInSource = wpKeywords.some(keyword => html.includes(keyword));
 
     // 3. Getting plugins list from source code
