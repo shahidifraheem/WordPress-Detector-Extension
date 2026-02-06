@@ -6,8 +6,6 @@ WordPress Detector is a lightweight and fast Chrome extension that scans the cur
 
 ## Key Features:
 - Detects if the active website is built with WordPress
-- Analyzes the page source code for WordPress-related metadata
-- Extracts active plugins and themes from the source (if available)
 - Works instantly — just click the extension icon!
 
 ## Why Use WordPress Detector?

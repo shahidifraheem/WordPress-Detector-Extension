@@ -22,10 +22,6 @@ async function detectWordPressDirectories() {
     const wpKeywords = ['content="wordpress', 'wp-admin', 'wp-includes', 'wp-content'];
     const foundInSource = wpKeywords.some(keyword => html.includes(keyword));
 
-    // 3. Getting plugins list from source code
-    const pluginPaths = [...html.matchAll(/\/wp-content\/plugins\/([^\/"'\\\s]+)/g)];
-    const pluginList = [...new Set(pluginPaths.map(match => match[1]))];
-
     // 4. Get active theme from source code
     const themePaths = [...html.matchAll(/\/wp-content\/themes\/([^\/"'\\\s]+)/g)];
     const activeTheme = [...new Set(themePaths.map(match => match[1]))];
@@ -34,7 +30,6 @@ async function detectWordPressDirectories() {
         isWordPress: Object.values(results).some(Boolean) && foundInSource,
         foundDirs: Object.keys(results).filter(dir => results[dir]),
         foundInSource,
-        pluginList,
         activeTheme
     };
 }
@@ -60,7 +55,6 @@ document.getElementById('check').addEventListener('click', async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = 'Analyzing the Website...';
-    const pluginsElement = document.getElementById('plugins');
     const themeElement = document.getElementById('themes');
     const moduleBox = document.getElementById('module-box');
 
@@ -84,7 +78,7 @@ document.getElementById('check').addEventListener('click', async () => {
         const result = response[0]?.result;
         if (!result) throw new Error('Detection failed - no response from page');
 
-        const { isWordPress, foundDirs, foundInSource, pluginList, activeTheme } = result;
+        const { isWordPress, foundDirs, foundInSource, activeTheme } = result;
 
         if (isWordPress && foundInSource) {
             styleElement(".logo", "height", "0")
@@ -95,9 +89,6 @@ document.getElementById('check').addEventListener('click', async () => {
             resultElement.textContent = 'This Website is Built in WordPress.';
             activeTheme.forEach(theme => {
                 themeElement.innerHTML = `<div class="module-item"><h3>${slugToTitle(theme)}</h3><span>https://wordpress.org/themes/${theme}</span></div>`;
-            });
-            pluginList.forEach(plugin => {
-                pluginsElement.innerHTML += `<div class="module-item"><h3>${slugToTitle(plugin)}</h3><span>https://wordpress.org/plugins/${plugin}</span></div>`;
             });
             viewModules.classList.add("active")
             viewModules.addEventListener('click', () => {

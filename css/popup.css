@@ -151,3 +151,21 @@ h3 {
   opacity: 1;
   visibility: visible;
 }
+#plugins {
+  filter: blur(2px);
+}
+#plugins-box sup{
+  color: red;
+  font-size: 10px;
+}
+#plugins-box a {
+  color: var(--white-color);
+  background-color: green;
+  font-size: 16px;
+  display: block;
+  padding: 15px;
+  border-radius: 25px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+}
