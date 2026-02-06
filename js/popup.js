@@ -107,4 +107,8 @@ document.getElementById('check').addEventListener('click', async () => {
         styleElement("#result", "color", "#ed1c24")
         resultElement.textContent = `Error: ${error.message}`;
     }
+
+    document.getElementById("upgrade-btn").addEventListener("click", () => {
+        chrome.tabs.create({ url: "https://codersship.com/product/wordpress-detector" });
+    });
 });
