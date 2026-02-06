@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "WordPress Detector",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Instantly detect a website is built in WordPress and also identifies plugins and themes.",
     "icons": {
         "128": "icons/icon128.png",
